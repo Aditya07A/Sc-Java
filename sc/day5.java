@@ -1,3 +1,5 @@
+package sc;
+
 public class day5 {
     public static void main(String[] args) {
         // Print the first five letters of the English alphabet i.e. A, B, C, D and E.

@@ -1,3 +1,4 @@
+package cwh;
 
 import java.util.Scanner;
 
