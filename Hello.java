@@ -38,5 +38,6 @@ class Hello {
 		double Percentage = (totalMarks / t1) * 100;
 		System.out.println("total Marks is : " + totalMarks);
 		System.out.println("total percentage is : " + Percentage);
+		sc.close();
 	}
 }
