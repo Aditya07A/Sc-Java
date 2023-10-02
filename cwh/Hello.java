@@ -22,23 +22,38 @@ class Hello {
 		// System.out.println(b1);
 
 		Scanner sc = new Scanner(System.in);
-		System.out.println("enter total max marks  :-");
-		double t1 = sc.nextDouble();
-		System.out.println("enter marks of sub1 :-");
-		double s1 = sc.nextDouble();
-		System.out.println("enter marks of sub2 :-");
-		double s2 = sc.nextDouble();
-		System.out.println("enter marks of sub3 :-");
-		double s3 = sc.nextDouble();
-		System.out.println("enter marks of sub4 :-");
-		double s4 = sc.nextDouble();
-		System.out.println("enter marks of sub5 :-");
-		double s5 = sc.nextDouble();
-		double totalMarks = s1 + s2 + s3 + s4 + s5;
+		// System.out.println("enter total max marks :-");
+		// double t1 = sc.nextDouble();
+		// System.out.println("enter marks of sub1 :-");
+		// double s1 = sc.nextDouble();
+		// System.out.println("enter marks of sub2 :-");
+		// double s2 = sc.nextDouble();
+		// System.out.println("enter marks of sub3 :-");
+		// double s3 = sc.nextDouble();
+		// System.out.println("enter marks of sub4 :-");
+		// double s4 = sc.nextDouble();
+		// System.out.println("enter marks of sub5 :-");
+		// double s5 = sc.nextDouble();
+		// double totalMarks = s1 + s2 + s3 + s4 + s5;
 
-		double Percentage = (totalMarks / t1) * 100;
-		System.out.println("total Marks is : " + totalMarks);
-		System.out.println("total percentage is : " + Percentage);
+		// double Percentage = (totalMarks / t1) * 100;
+		// System.out.println("total Marks is : " + totalMarks);
+		// System.out.println("total percentage is : " + Percentage);
+
+		// strings
+		String a = "adi";
+		String a1 = new String("aditya");
+		System.out.println(a1);
+		System.out.println(a);
+		String name = "adi";
+		int value = name.length();
+		System.out.println(value);
+		System.out.println(value);
+		String lstring = name.toLowerCase();
+		System.out.println(lstring);
+
+		String ustring = name.toUpperCase();
+		System.out.println(ustring);
 		sc.close();
 	}
 }
