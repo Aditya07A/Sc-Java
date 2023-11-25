@@ -21,7 +21,7 @@ class Hello {
 		// boolean b1 = sc.hasNextFloat();
 		// System.out.println(b1);
 
-		Scanner sc = new Scanner(System.in);
+		// Scanner sc = new Scanner(System.in);
 		// System.out.println("enter total max marks :-");
 		// double t1 = sc.nextDouble();
 		// System.out.println("enter marks of sub1 :-");
@@ -41,19 +41,52 @@ class Hello {
 		// System.out.println("total percentage is : " + Percentage);
 
 		// strings
-		String a = "adi";
-		String a1 = new String("aditya");
-		System.out.println(a1);
-		System.out.println(a);
-		String name = "adi";
-		int value = name.length();
-		System.out.println(value);
-		System.out.println(value);
-		String lstring = name.toLowerCase();
-		System.out.println(lstring);
+		// String a = "adi";
+		// String a1 = new String("aditya");
+		// System.out.println(a1);
+		// System.out.println(a);
+		// String name = "adi";
+		// int value = name.length();
+		// System.out.println(value);
+		// System.out.println(value);
+		// String lstring = name.toLowerCase();
+		// System.out.println(lstring);
 
-		String ustring = name.toUpperCase();
-		System.out.println(ustring);
+		// String ustring = name.toUpperCase();
+		// System.out.println(ustring);
+		// Scanner sc = new Scanner(System.in);
+		// int a = sc.nextInt();
+		// if (a >= 18) {
+		// System.out.println("you can drive");
+		// } else {
+		// System.out.println("You cannot drive");
+		// }
+		// Scanner sc = new Scanner(System.in);
+		// System.out.println("enter age");
+		// int age = sc.nextInt();
+		// if (age > 50) {
+		// System.out.println("u r a");
+		// } else if (age > 40) {
+		// System.out.println("u r b");
+		// } else if (age > 30) {
+		// System.out.println("u r c");
+		// } else {
+		// System.out.println("u r d");
+		// }
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter button");
+		int button = sc.nextInt();
+		switch (button) {
+			case 1:
+				System.out.println("Namaste");
+				break;
+			case 2:
+				System.out.println("Hello");
+				break;
+			default:
+				System.out.println("Invalid");
+		}
+
 		sc.close();
 	}
 }
