@@ -1,6 +1,6 @@
 package cwh;
 
-import java.util.Scanner;
+
 
 public class cwh_practice3 {
 
@@ -19,12 +19,14 @@ public class cwh_practice3 {
         letter = letter.replace("<|name|>", "Adi");
         // System.out.println(letter);
         // problem -4
-        String myString = "this line has   double and triple spaces";
+       // String myString = "this line has   double and triple spaces";
         // System.out.println(myString.indexOf(" "));
         // System.out.println(myString.indexOf(" "));
 
         // problem-5
         String letter2 = "Dear Harry\n\tThis java course is Nice.\n\tThanks!";
         System.out.println(letter2);
+        
+    
     }
 }
