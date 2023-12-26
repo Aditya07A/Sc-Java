@@ -103,21 +103,44 @@ public class day13 {
         // i++;
         // }
         // q3-Add--
-        int T = sc.nextInt();
-        while (T > 0) {
-            int N = sc.nextInt();
-            int ld = 0;
-            int fd = 0;
-            ld = N % 10;
-            while (N > 0) {
-                fd = N % 10;
-                N = N / 10;
+        // int T = sc.nextInt();
+        // while (T > 0) {
+        // int N = sc.nextInt();
+        // int ld = 0;
+        // int fd = 0;
+        // ld = N % 10;
+        // while (N > 0) {
+        // fd = N % 10;
+        // N = N / 10;
 
-            }
-            System.out.println(fd + " " + ld);
+        // }
+        // System.out.println(fd + " " + ld);
 
+        // }
+        // T--;
+        // q4-Add--
+        // int N = sc.nextInt();
+        // int x = 0;
+        // int y = 0;
+        // while (N > 0) {
+        // int ld = N % 10;
+        // N /= 10;
+        // if (ld % 2 == 0) {
+        // x += ld;
+        // } else {
+        // y += ld;
+        // }
+        // }
+        // System.out.println(x);
+        // System.out.println(y);
+        // q5-Add--
+        int N = sc.nextInt();
+        int i = 0;
+        while (N > 1) {
+            N = N / 2;
+            i++;
         }
-        T--;
+        System.out.println(i);
         sc.close();
     }
 }
