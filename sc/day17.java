@@ -2,7 +2,7 @@ package sc;
 
 import java.util.*;
 
-public class day16 {
+public class day17 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // q1-Assignment----
