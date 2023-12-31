@@ -81,15 +81,47 @@ public class day18Patteren2 {
 
         // System.out.println();
         // }
-        // q1-Add----
+        // q2-Add----
+        // int N = sc.nextInt();
+        // for (int i = 1; i <= N; i++) {
+        // for (int j = N; j >= i; j--) {
+        // if (i == 1 || j == N || i == j) {
+        // System.out.print("*");
+        // } else {
+        // System.out.print(" ");
+        // }
+        // }
+        // System.out.println();
+        // }
+        // q3-Add----
+        // int N = sc.nextInt();
+        // int num = N;
+        // for (int i = 0; i < N; i++) {
+        // for (int j = 0; j < N - i - 1; j++) {
+        // System.out.print(0 + " ");
+        // }
+        // for (int j = 1; j <= (2 * i + 1); j++) {
+        // System.out.print(num * j + " ");
+        // }
+        // for (int j = 0; j < N - i - 1; j++) {
+        // System.out.print(0 + " ");
+        // }
+        // System.out.println();
+        // num--;
+        // }
+        // q4-Add----
         int N = sc.nextInt();
-        for (int i = 1; i <= N; i++) {
-            for (int j = 1; j <= N; j++) {
-                if (i == 1 || i == N || j == 1 || j == N) {
+        int k = N - 1;
+        for (int i = 1; i < 2 * N; i++) {
+            if (i <= N) {
+                for (int j = 1; j <= i; j++) {
                     System.out.print("*");
-                } else {
-                    System.out.print(" ");
                 }
+            } else {
+                for (int j = 1; j <= k; j++) {
+                    System.out.print("*");
+                }
+                k = k - 1;
             }
             System.out.println();
         }
