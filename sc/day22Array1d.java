@@ -79,6 +79,14 @@ public class day22Array1d {
         // }
 
         // q3-Assignment----
+        int N = sc.nextInt();
+        int[] A = new int[N];
+        int sum = 0;
+        for (int i = 0; i <= N - 1; i++) {
+            A[i] = sc.nextInt();
+            sum += A[i];
+        }
+        System.out.println(sum);
 
         sc.close();
     }
