@@ -97,26 +97,112 @@ public class day22Array1d {
     // return ans;
     // }
 
+    // public static void main(String[] args) {
+    // Scanner sc = new Scanner(System.in);
+    // int N = sc.nextInt(); // N is Size of Array
+    // int a[] = new int[N]; // Initializing Array along with size N
+    // for (int i = 0; i < N; i++) { // For Loop to take Input
+    // a[i] = sc.nextInt();
+    // }
+    // int product = 1;
+    // for (int i = 0; i < N; i++) { // For Loop to print output
+    // product *= a[i];
+    // }
+    // System.out.print(product); // output
+    // // q1- Add----
+    // int N = sc.nextInt();
+    // int[] A = new int[N];
+    // for (int i = 0; i <= N - 1; i++) {
+    // A[i] = sc.nextInt();
+    // if (A[i] < 0) {
+    // System.out.println(A[i] + " ");
+    // }
+    // }
+    // q2- Add----
+    // public static int[] solve(final int[] a, int b) {
+    // int N = a.length;
+    // int[] arr = new int[N];
+
+    // for (int i = 0; i < N; i++) {
+    // arr[i] = a[i] + b;
+    // }
+    // return arr;
+    // }
+
+    // public static void main(String[] args) {
+    // Scanner sc = new Scanner(System.in);
+    // int N = sc.nextInt();
+    // int[] c = new int[N];
+    // for (int i = 0; i <= N - 1; i++) {
+    // c[i] = sc.nextInt();
+    // }
+    // int d = sc.nextInt();
+    // int[] resultArray = solve(c, d);
+
+    // System.out.print("Resultant Array:");
+    // for (int i = 0; i < resultArray.length; i++) {
+    // int num = resultArray[i];
+    // System.out.print(num + " ");
+    // }
+    // // for (int num : resultArray) {
+    // // System.out.print(num + " ");
+    // // }
+    // q3- Add----
+    // public static void main(String[] args) {
+    // Scanner sc = new Scanner(System.in);
+    // int T = sc.nextInt();
+    // while (T > 0) {
+    // int n = sc.nextInt();
+    // int even = 0;
+    // int odd = 0;
+    // int a[] = new int[n];
+    // for (int i = 0; i < a.length; i++) {
+    // // for (int i = 0; i < n; i++) {
+    // a[i] = sc.nextInt();
+    // if (a[i] % 2 == 0) {
+    // even++;
+    // } else {
+    // odd++;
+    // }
+    // }
+    // if (even > odd) {
+    // System.out.println("diff: " + (even - odd));
+    // } else {
+    // System.out.println("diff: " + (odd - even));
+    // }
+    // // sopln(Math.abs(even-odd));
+
+    // }
+    // T--;
+    // q4-Add-----
+    public static int sum(int[] a) {
+        int even = 0;
+        int odd = 0;
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] % 2 == 0) {
+                even += a[i];
+            } else {
+                odd += a[i];
+            }
+        }
+        int diff;
+        if (even > odd) {
+            diff = (even - odd);
+        } else {
+            diff = (even - odd);
+        }
+
+        return diff;
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        // int N = sc.nextInt(); // N is Size of Array
-        // int a[] = new int[N]; // Initializing Array along with size N
-        // for (int i = 0; i < N; i++) { // For Loop to take Input
-        // a[i] = sc.nextInt();
-        // }
-        // int product = 1;
-        // for (int i = 0; i < N; i++) { // For Loop to print output
-        // product *= a[i];
-        // }
-        // System.out.print(product); // output
-        // q1- Add----
-        int N = sc.nextInt();
-        int[] A = new int[N];
-        for (int i = 0; i <= N - 1; i++) {
-            A[i] = sc.nextInt();
-            if (A[i] < 0) {
-                System.out.println(A[i] + " ");
-            }
+        int n = sc.nextInt();
+        int[] a = new int[n];
+        for (int i = 0; i < a.length; i++) {
+            a[i] = sc.nextInt();
+            int res = sum(a);
+            System.out.println(res);
         }
 
         sc.close();
