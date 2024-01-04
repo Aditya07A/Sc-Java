@@ -99,16 +99,26 @@ public class day22Array1d {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt(); // N is Size of Array
-        int a[] = new int[N]; // Initializing Array along with size N
-        for (int i = 0; i < N; i++) { // For Loop to take Input
-            a[i] = sc.nextInt();
+        // int N = sc.nextInt(); // N is Size of Array
+        // int a[] = new int[N]; // Initializing Array along with size N
+        // for (int i = 0; i < N; i++) { // For Loop to take Input
+        // a[i] = sc.nextInt();
+        // }
+        // int product = 1;
+        // for (int i = 0; i < N; i++) { // For Loop to print output
+        // product *= a[i];
+        // }
+        // System.out.print(product); // output
+        // q1- Add----
+        int N = sc.nextInt();
+        int[] A = new int[N];
+        for (int i = 0; i <= N - 1; i++) {
+            A[i] = sc.nextInt();
+            if (A[i] < 0) {
+                System.out.println(A[i] + " ");
+            }
         }
-        int product = 1;
-        for (int i = 0; i < N; i++) { // For Loop to print output
-            product *= a[i];
-        }
-        System.out.print(product); // output
+
         sc.close();
     }
 }
