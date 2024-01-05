@@ -189,7 +189,7 @@ public class day22Array1d {
         if (even > odd) {
             diff = (even - odd);
         } else {
-            diff = (even - odd);
+            diff = (odd - even);
         }
 
         return diff;
