@@ -95,53 +95,97 @@ package sc;
 //     }
 
 // }
-// q4-Assignment-----
+// // q4-Assignment-----
+// import java.util.Scanner;
+
+// public class day23Array1d {
+
+//     public int[] solve(int[] A, int B) {
+//         int count = 0;
+//         int C[] = new int[2];
+//         C[0] = 0;
+//         C[1] = 0;
+//         for (int i = 0; i < A.length; i++) {
+//             if (A[i] == B) {
+//                 count++;
+//                 C[1] = i;
+//                 if (count == 1)
+//                     C[0] = i;
+//             }
+//         }
+//         return C;
+//     }
+
+//     public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
+//         int length = sc.nextInt();
+
+//         int[] A = new int[length];
+//         System.out.println("Enter the elements of the array:");
+//         for (int i = 0; i < length; i++) {
+//             A[i] = sc.nextInt();
+//         }
+
+//         // Taking the value to search from the user
+//         System.out.print("Enter the value to search for: ");
+//         int B = sc.nextInt();
+
+//         // Creating an instance of the day23Array1d class
+//         day23Array1d solution = new day23Array1d();
+
+//         // Calling the solve method
+//         int[] result = solution.solve(A, B);
+
+//         // Check if result is not null and not equal to [0, 0]
+//         if (result != null && !(result[0] == 0 && result[1] == 0)) {
+//             // Displaying the result
+//             System.out.println("Indices of " + B + " in the array: [" + result[0] + ", " + result[1] + "]");
+//         } else {
+//             System.out.println("Value " + B + " not found in the array.");
+//         }
+//         sc.close();
+//     }
+// }
+// q1-Add-----
+
 import java.util.Scanner;
 
 public class day23Array1d {
-
-    public int[] solve(int[] A, int B) {
-        int count = 0;
-        int C[] = new int[2];
-        C[0] = 0;
-        C[1] = 0;
-        for (int i = 0; i < A.length; i++) {
-            if (A[i] == B) {
-                count++;
-                C[1] = i;
-                if (count == 1)
-                    C[0] = i;
-            }
+    public long[] solve(int[] A) {
+        if (A == null || A.length == 0) {
+            return new long[0];
         }
-        return C;
+
+        int N = A.length;
+        long B[] = new long[N];
+        for (int i = 0; i < N; i++) {
+            B[i] = (long) A[i] * A[i] * A[i];
+        }
+        return B;
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int length = sc.nextInt();
+        int size = sc.nextInt();
 
-        int[] A = new int[length];
+        int[] inputArray = new int[size];
+
+        // Taking input for the array elements from the user
         System.out.println("Enter the elements of the array:");
-        for (int i = 0; i < length; i++) {
-            A[i] = sc.nextInt();
+        for (int i = 0; i < size; i++) {
+            inputArray[i] = sc.nextInt();
         }
 
-        // Taking the value to search from the user
-        System.out.print("Enter the value to search for: ");
-        int B = sc.nextInt();
-
-        // Creating an instance of the day23Array1d class
+        // Creating an instance of the Day23Array1d class
         day23Array1d solution = new day23Array1d();
 
         // Calling the solve method
-        int[] result = solution.solve(A, B);
+        long[] resultArray = solution.solve(inputArray);
 
-        // Check if result is not null and not equal to [0, 0]
-        if (result != null && !(result[0] == 0 && result[1] == 0)) {
-            // Displaying the result
-            System.out.println("Indices of " + B + " in the array: [" + result[0] + ", " + result[1] + "]");
-        } else {
-            System.out.println("Value " + B + " not found in the array.");
+        // Displaying the resulting array
+        System.out.print("Cubed values: ");
+        for (long value : resultArray) {
+            System.out.print(value + " ");
         }
         sc.close();
     }
