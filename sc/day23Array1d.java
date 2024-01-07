@@ -190,25 +190,48 @@ import java.util.Scanner;
 //         sc.close();
 //     }
 // q2-Add-----
+// public class day23Array1d {
+//     public static int solve(int[] ls, int x) {
+//         for (int i = 0; i < ls.length; i++) {
+//             if (ls[i] % x == 0) {
+//                 return ls[i];
+//             }
+//         }
+//         return -1;
+//     }
+
+//     public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
+//         int n = sc.nextInt();
+//         int[] ls = new int[n];
+//         for (int i = 0; i < ls.length; i++) {
+//             ls[i] = sc.nextInt();
+//         }
+//         int x = sc.nextInt();
+//         System.out.println("result : " + solve(ls, x));
+
+//         sc.close();
+//     }
+// q3-Add-----
 public class day23Array1d {
-    public static int solve(int[] ls, int x) {
-        for (int i = 0; i < ls.length; i++) {
-            if (ls[i] % x == 0) {
-                return ls[i];
+    public static boolean solve(int[] a) {
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] == a[i + 1]) {
+                return true;
             }
         }
-        return -1;
+        return false;
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int[] ls = new int[n];
-        for (int i = 0; i < ls.length; i++) {
-            ls[i] = sc.nextInt();
+        int[] a = new int[n];
+        for (int i = 0; i < a.length; i++) {
+            a[i] = sc.nextInt();
         }
-        int x = sc.nextInt();
-        System.out.println("result : " + solve(ls, x));
+
+        System.out.println("result : " + solve(a));
 
         sc.close();
     }
