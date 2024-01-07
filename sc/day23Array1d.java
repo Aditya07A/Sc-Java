@@ -150,43 +150,66 @@ package sc;
 
 import java.util.Scanner;
 
-public class day23Array1d {
-    public long[] solve(int[] A) {
-        if (A == null || A.length == 0) {
-            return new long[0];
-        }
+// public class day23Array1d {
+//     public long[] solve(int[] A) {
+//         if (A == null || A.length == 0) {
+//             return new long[0];
+//         }
 
-        int N = A.length;
-        long B[] = new long[N];
-        for (int i = 0; i < N; i++) {
-            B[i] = (long) A[i] * A[i] * A[i];
+//         int N = A.length;
+//         long B[] = new long[N];
+//         for (int i = 0; i < N; i++) {
+//             B[i] = (long) A[i] * A[i] * A[i];
+//         }
+//         return B;
+//     }
+
+//     public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
+//         int size = sc.nextInt();
+
+//         int[] inputArray = new int[size];
+
+//         // Taking input for the array elements from the user
+//         System.out.println("Enter the elements of the array:");
+//         for (int i = 0; i < size; i++) {
+//             inputArray[i] = sc.nextInt();
+//         }
+
+//         // Creating an instance of the Day23Array1d class
+//         day23Array1d solution = new day23Array1d();
+
+//         // Calling the solve method
+//         long[] resultArray = solution.solve(inputArray);
+
+//         // Displaying the resulting array
+//         System.out.print("Cubed values: ");
+//         for (long value : resultArray) {
+//             System.out.print(value + " ");
+//         }
+//         sc.close();
+//     }
+// q2-Add-----
+public class day23Array1d {
+    public static int solve(int[] ls, int x) {
+        for (int i = 0; i < ls.length; i++) {
+            if (ls[i] % x == 0) {
+                return ls[i];
+            }
         }
-        return B;
+        return -1;
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int size = sc.nextInt();
-
-        int[] inputArray = new int[size];
-
-        // Taking input for the array elements from the user
-        System.out.println("Enter the elements of the array:");
-        for (int i = 0; i < size; i++) {
-            inputArray[i] = sc.nextInt();
+        int n = sc.nextInt();
+        int[] ls = new int[n];
+        for (int i = 0; i < ls.length; i++) {
+            ls[i] = sc.nextInt();
         }
+        int x = sc.nextInt();
+        System.out.println("result : " + solve(ls, x));
 
-        // Creating an instance of the Day23Array1d class
-        day23Array1d solution = new day23Array1d();
-
-        // Calling the solve method
-        long[] resultArray = solution.solve(inputArray);
-
-        // Displaying the resulting array
-        System.out.print("Cubed values: ");
-        for (long value : resultArray) {
-            System.out.print(value + " ");
-        }
         sc.close();
     }
 }
