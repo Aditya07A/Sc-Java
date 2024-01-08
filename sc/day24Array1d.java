@@ -4,21 +4,59 @@ import java.util.*;
 
 public class day24Array1d {
 
-    // q1-Assignment----
-    public static int[] frequency(int[] a) {
-        int n = a.length;
-        int[] res = new int[n];
-        for (int i = 0; i <= n - 1; i++) {
+    // // q1-Assignment----
+    // public static int[] frequency(int[] a) {
+    // int n = a.length;
+    // int[] res = new int[n];
+    // for (int i = 0; i <= n - 1; i++) {
+    // int count = 0;
+    // for (int j = 0; j <= n - 1; j++) {
+    // if (a[j] == a[i]) {
+    // count++;
+    // }
+    // }
+
+    // res[i] = count;
+    // }
+    // return res;
+    // }
+
+    // public static void main(String[] args) {
+
+    // Scanner sc = new Scanner(System.in);
+
+    // int n = sc.nextInt();
+
+    // int[] a = new int[n];
+    // for (int i = 0; i < a.length; i++) {
+    // a[i] = sc.nextInt();
+    // }
+    // int[] output = frequency(a);
+    // for (int i = 0; i < output.length; i++) {
+    // System.out.print(output[i] + " ");
+    // }
+
+    // sc.close();
+
+    // }
+    // q2-Assignment----
+    public static int unique(int[] a) {
+
+        int ans = 0;
+        for (int i = 0; i < a.length; i++) {
             int count = 0;
-            for (int j = 0; j <= n - 1; j++) {
+            for (int j = 0; j < a.length; j++) {
                 if (a[j] == a[i]) {
                     count++;
                 }
             }
+            if (count == 1) {
+                ans = a[i];
+                return ans;
+            }
 
-            res[i] = count;
         }
-        return res;
+        return -1;
     }
 
     public static void main(String[] args) {
@@ -31,9 +69,12 @@ public class day24Array1d {
         for (int i = 0; i < a.length; i++) {
             a[i] = sc.nextInt();
         }
-        int[] output = frequency(a);
-        for (int i = 0; i < output.length; i++) {
-            System.out.print(output[i] + " ");
+        int output = unique(a);
+
+        if (output != -1) {
+            System.out.println("Unique element: " + output);
+        } else {
+            System.out.println("No unique element found.");
         }
 
         sc.close();
