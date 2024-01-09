@@ -82,21 +82,57 @@ package sc;
 // }
 import java.util.*;
 
+// // q3-Assignment----
+// import java.util.Scanner;
+
 // public class day24Array1d {
-// q3-Assignment----
+
+//     static class Solution {
+//         public int solve(int[] A) {
+//             int n = A.length;
+//             for (int i = 0; i <= n - 2; i++) {
+//                 if (A[i] > A[i + 1]) {
+//                     return 0;
+//                 }
+//             }
+//             return 1;
+//         }
+//     }
+
+//     public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
+
+//         int n = sc.nextInt();
+
+//         int[] a = new int[n];
+//         for (int i = 0; i < a.length; i++) {
+//             a[i] = sc.nextInt();
+//         }
+
+//         Solution solution = new Solution();
+//         int result = solution.solve(a);
+//         System.out.println("The array is sorted: " + (result == 1));
+
+//         sc.close();
+//     }
+// }
+// q4-Assignment----
 import java.util.Scanner;
 
 public class day24Array1d {
 
-    static class Solution {
-        public int solve(int[] A) {
+    public static class Solution {
+        public int solve(int[] A, int B) {
             int n = A.length;
-            for (int i = 0; i <= n - 2; i++) {
-                if (A[i] > A[i + 1]) {
-                    return 0;
+            int count = 0;
+            for (int i = 0; i < n; i++) {
+                for (int j = i + 1; j < n; j++) {
+                    if (A[i] + A[j] == B) {
+                        count++;
+                    }
                 }
             }
-            return 1;
+            return count;
         }
     }
 
@@ -110,12 +146,13 @@ public class day24Array1d {
             a[i] = sc.nextInt();
         }
 
+        int valueB = sc.nextInt();
+
         Solution solution = new Solution();
-        int result = solution.solve(a);
-        System.out.println("The array is sorted: " + (result == 1));
+        int countOfPairs = solution.solve(a, valueB);
+
+        System.out.println("The count of pairs whose sum is " + valueB + " is: " + countOfPairs);
 
         sc.close();
     }
 }
-
-// }
