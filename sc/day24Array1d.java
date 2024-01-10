@@ -80,7 +80,7 @@ package sc;
 // sc.close();
 
 // }
-import java.util.*;
+// import java.util.*;
 
 // // q3-Assignment----
 // import java.util.Scanner;
@@ -116,43 +116,75 @@ import java.util.*;
 //         sc.close();
 //     }
 // }
-// q4-Assignment----
+// // q4-Assignment----
+
+// import java.util.Scanner;
+
+// public class day24Array1d {
+
+//     public static class Solution {
+//         public int solve(int[] A, int B) {
+//             int n = A.length;
+//             int count = 0;
+//             for (int i = 0; i < n; i++) {
+//                 for (int j = i + 1; j < n; j++) {
+//                     if (A[i] + A[j] == B) {
+//                         count++;
+//                     }
+//                 }
+//             }
+//             return count;
+//         }
+//     }
+
+//     public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
+
+//         int n = sc.nextInt();
+
+//         int[] a = new int[n];
+//         for (int i = 0; i < a.length; i++) {
+//             a[i] = sc.nextInt();
+//         }
+
+//         int valueB = sc.nextInt();
+
+//         Solution solution = new Solution();
+//         int countOfPairs = solution.solve(a, valueB);
+
+//         System.out.println("The count of pairs whose sum is " + valueB + " is: " + countOfPairs);
+
+//         sc.close();
+//     }
+// }
+// q1-Add----
+
 import java.util.Scanner;
 
 public class day24Array1d {
-
-    public static class Solution {
-        public int solve(int[] A, int B) {
-            int n = A.length;
-            int count = 0;
-            for (int i = 0; i < n; i++) {
-                for (int j = i + 1; j < n; j++) {
-                    if (A[i] + A[j] == B) {
-                        count++;
-                    }
-                }
-            }
-            return count;
-        }
-    }
-
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        int n = sc.nextInt();
-
-        int[] a = new int[n];
-        for (int i = 0; i < a.length; i++) {
-            a[i] = sc.nextInt();
+        try (// YOUR CODE GOES HERE
+             // Please take input and print output to standard input/output (stdin/stdout)
+             // DO NOT USE ARGUMENTS FOR INPUTS
+             // E.g. 'Scanner' for input & 'System.out' for output
+                Scanner sc = new Scanner(System.in)) {
+            int N = sc.nextInt();
+            int[] arr = new int[N];
+            for (int i = 0; i < N; i++) {
+                arr[i] = sc.nextInt();
+            }
+            int X = sc.nextInt();
+            int arr2[] = new int[N + 1];
+            for (int i = 0; i < X - 1; i++) {
+                arr2[i] = arr[i];
+            }
+            arr2[X - 1] = sc.nextInt();
+            for (int i = X; i < N + 1; i++) {
+                arr2[i] = arr[i - 1];
+            }
+            for (int a : arr2) {
+                System.out.print(a + " ");
+            }
         }
-
-        int valueB = sc.nextInt();
-
-        Solution solution = new Solution();
-        int countOfPairs = solution.solve(a, valueB);
-
-        System.out.println("The count of pairs whose sum is " + valueB + " is: " + countOfPairs);
-
-        sc.close();
     }
 }
