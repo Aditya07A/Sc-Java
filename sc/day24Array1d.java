@@ -160,33 +160,59 @@ package sc;
 
 import java.util.Scanner;
 
-public class day24Array1d {
-    public int[] solve(int[] A) {
-        int n = A.length;
-        int inverse[] = new int[n];
+// public class day24Array1d {
+//     public int[] solve(int[] A) {
+//         int n = A.length;
+//         int inverse[] = new int[n];
 
-        for (int i = 0; i < n; i++) {
-            inverse[A[i]] = i;
+//         for (int i = 0; i < n; i++) {
+//             inverse[A[i]] = i;
+//         }
+//         return inverse;
+//     }
+
+//     public static void main(String args[]) {
+//         try (Scanner scn = new Scanner(System.in)) {
+//             int n = scn.nextInt();
+//             int a[] = new int[n];
+
+//             for (int i = 0; i < n; i++) {
+//                 a[i] = scn.nextInt();
+//             }
+
+//             day24Array1d solution = new day24Array1d();
+//             int[] result = solution.solve(a);
+
+//             System.out.println("Inverse array:");
+//             for (int value : result) {
+//                 System.out.print(value + " ");
+//             }
+//         }
+//     }
+// }
+
+public class day24Array1d {
+    public static int[] rightshift(int[] a) {
+        int[] b = new int[a.length];
+        b[0] = a[a.length - 1];
+
+        for (int i = 0; i < a.length - 1; i++) {
+            b[i + 1] = a[i];
         }
-        return inverse;
+        return b;
     }
 
-    public static void main(String args[]) {
-        try (Scanner scn = new Scanner(System.in)) {
-            int n = scn.nextInt();
-            int a[] = new int[n];
-
-            for (int i = 0; i < n; i++) {
-                a[i] = scn.nextInt();
-            }
-
-            day24Array1d solution = new day24Array1d();
-            int[] result = solution.solve(a);
-
-            System.out.println("Inverse array:");
-            for (int value : result) {
-                System.out.print(value + " ");
-            }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int a[] = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = sc.nextInt();
         }
+        int shifted[] = rightshift(a);
+        for (int i = 0; i < n; i++) {
+            System.out.print(shifted[i] + " ");
+        }
+        sc.close();
     }
 }
