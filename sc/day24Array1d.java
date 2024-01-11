@@ -161,51 +161,32 @@ package sc;
 import java.util.Scanner;
 
 public class day24Array1d {
-    // // q1-Add----
-    // public static void main(String[] args) {
-    // try (// YOUR CODE GOES HERE
-    // // Please take input and print output to standard input/output (stdin/stdout)
-    // // DO NOT USE ARGUMENTS FOR INPUTS
-    // // E.g. 'Scanner' for input & 'System.out' for output
-    // Scanner sc = new Scanner(System.in)) {
-    // int N = sc.nextInt();
-    // int[] arr = new int[N];
-    // for (int i = 0; i < N; i++) {
-    // arr[i] = sc.nextInt();
-    // }
-    // int X = sc.nextInt();
-    // int arr2[] = new int[N + 1];
-    // for (int i = 0; i < X - 1; i++) {
-    // arr2[i] = arr[i];
-    // }
-    // arr2[X - 1] = sc.nextInt();
-    // for (int i = X; i < N + 1; i++) {
-    // arr2[i] = arr[i - 1];
-    // }
-    // for (int a : arr2) {
-    // System.out.print(a + " ");
-    // }
-    // }
-    // }
-    // q2-Add----
+    public int[] solve(int[] A) {
+        int n = A.length;
+        int inverse[] = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            inverse[A[i]] = i;
+        }
+        return inverse;
+    }
+
     public static void main(String args[]) {
         try (Scanner scn = new Scanner(System.in)) {
             int n = scn.nextInt();
             int a[] = new int[n];
+
             for (int i = 0; i < n; i++) {
                 a[i] = scn.nextInt();
             }
-            int x = scn.nextInt();
-            x = x - 1;
-            // looping from x to n-2 and making current element equal to the next one
-            for (int i = x; i < n - 1; i++) {
-                a[i] = a[i + 1];
-            }
-            n = n - 1;
-            for (int i = 0; i < n; i++) {
-                System.out.print(a[i] + " ");
+
+            day24Array1d solution = new day24Array1d();
+            int[] result = solution.solve(a);
+
+            System.out.println("Inverse array:");
+            for (int value : result) {
+                System.out.print(value + " ");
             }
         }
     }
-
 }
