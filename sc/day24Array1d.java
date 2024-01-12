@@ -191,28 +191,52 @@ import java.util.Scanner;
 //     }
 // }
 
-public class day24Array1d {
-    public static int[] rightshift(int[] a) {
-        int[] b = new int[a.length];
-        b[0] = a[a.length - 1];
+// public class day24Array1d {
+//     public static int[] rightshift(int[] a) {
+//         int[] b = new int[a.length];
+//         b[0] = a[a.length - 1];
 
-        for (int i = 0; i < a.length - 1; i++) {
-            b[i + 1] = a[i];
+//         for (int i = 0; i < a.length - 1; i++) {
+//             b[i + 1] = a[i];
+//         }
+//         return b;
+//     }
+
+//     public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
+//         int n = sc.nextInt();
+//         int a[] = new int[n];
+//         for (int i = 0; i < n; i++) {
+//             a[i] = sc.nextInt();
+//         }
+//         int shifted[] = rightshift(a);
+//         for (int i = 0; i < n; i++) {
+//             System.out.print(shifted[i] + " ");
+//         }
+//         sc.close();
+//     }
+// }
+//dumy
+public class day23Array1d {
+    public static boolean solve(int[] a) {
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] == a[i + 1]) {
+                return true;
+            }
         }
-        return b;
+        return false;
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int a[] = new int[n];
-        for (int i = 0; i < n; i++) {
+        int[] a = new int[n];
+        for (int i = 0; i < a.length; i++) {
             a[i] = sc.nextInt();
         }
-        int shifted[] = rightshift(a);
-        for (int i = 0; i < n; i++) {
-            System.out.print(shifted[i] + " ");
-        }
+
+        System.out.println("result : " + solve(a));
+
         sc.close();
     }
 }
