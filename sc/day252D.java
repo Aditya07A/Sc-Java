@@ -40,28 +40,50 @@ public class day252D {
 
         // q3-Assignment------
 
-        int n = sc.nextInt();
-        int mat[][] = new int[n][n];
+        // int n = sc.nextInt();
+        // int mat[][] = new int[n][n];
 
+        // for (int i = 0; i < n; i++) {
+        // for (int j = 0; j < n; j++) {
+        // mat[i][j] = sc.nextInt();
+        // }
+        // }
+        // // Iterating over the columns
+        // for (int col = 0; col < n; col++) {
+        // // Iterating over rows
+        // for (int row = 0; row < n; row++) {
+        // if ((col % 2) == 1) {
+        // System.out.print(mat[n - 1 - row][col]);
+        // } else {
+        // System.out.print(mat[row][col]);
+        // }
+        // System.out.print(' ');
+        // }
+        // }
+
+        // System.out.println();
+
+        // q4-Assignment------
+        int n = sc.nextInt();
+        int[][] mat = new int[n][n];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 mat[i][j] = sc.nextInt();
             }
         }
-        // Iterating over the columns
-        for (int col = 0; col < n; col++) {
-            // Iterating over rows
-            for (int row = 0; row < n; row++) {
-                if ((col % 2) == 1) {
-                    System.out.print(mat[n - 1 - row][col]);
-                } else {
-                    System.out.print(mat[row][col]);
+        for (int row = 0; row < n; row++) {
+            if (row % 2 == 0) {
+                for (int col = 0; col < n; col++) {
+                    System.out.print(mat[row][col] + " ");
                 }
-                System.out.print(' ');
+
+            } else {
+                for (int col = n - 1; col >= 0; col--) {
+                    System.out.print(mat[row][col] + " ");
+                }
+
             }
         }
-
-        System.out.println();
         sc.close();
     }
 }
