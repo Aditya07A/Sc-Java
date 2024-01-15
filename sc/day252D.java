@@ -92,55 +92,56 @@
 
 // public class day252D {
 
-//     public int[] solve(int[][] A) {
-//         int n = A.length, m = A[0].length;
-//         int ans[] = new int[n];
-//         for (int i = 0; i < n; i++) {
-//             int temp = 0;
-//             // Finding sum of elements of ith row
-//             for (int j = 0; j < m; j++) {
-//                 temp += A[i][j];
-//             }
-//             ans[i] = temp;
-//         }
-//         return ans;
-//     }
-
-//     public static void main(String[] args) {
-//         Scanner sc = new Scanner(System.in);
-
-//         // Get the number of rows and columns from the user
-//         System.out.print("Enter the number of rows: ");
-//         int rows = sc.nextInt();
-
-//         System.out.print("Enter the number of columns: ");
-//         int cols = sc.nextInt();
-
-//         // Create a 2D array based on user input
-//         int[][] inputArray = new int[rows][cols];
-
-//         System.out.println("Enter the elements of the array:");
-//         for (int i = 0; i < rows; i++) {
-//             for (int j = 0; j < cols; j++) {
-//                 inputArray[i][j] = sc.nextInt();
-//             }
-//         }
-
-//         // Create an instance of the class containing the solve method
-//         day252D solver = new day252D();
-
-//         // Call the solve method and store the result in the resultArray
-//         int[] resultArray = solver.solve(inputArray);
-
-//         // Print the result
-//         System.out.println("Result:");
-//         for (int result : resultArray) {
-//             System.out.print(result + " ");
-//         }
-//         sc.close();
-//     }
+// public int[] solve(int[][] A) {
+// int n = A.length, m = A[0].length;
+// int ans[] = new int[n];
+// for (int i = 0; i < n; i++) {
+// int temp = 0;
+// // Finding sum of elements of ith row
+// for (int j = 0; j < m; j++) {
+// temp += A[i][j];
 // }
-// q6-Assignment--
+// ans[i] = temp;
+// }
+// return ans;
+// }
+
+// public static void main(String[] args) {
+// Scanner sc = new Scanner(System.in);
+
+// // Get the number of rows and columns from the user
+// System.out.print("Enter the number of rows: ");
+// int rows = sc.nextInt();
+
+// System.out.print("Enter the number of columns: ");
+// int cols = sc.nextInt();
+
+// // Create a 2D array based on user input
+// int[][] inputArray = new int[rows][cols];
+
+// System.out.println("Enter the elements of the array:");
+// for (int i = 0; i < rows; i++) {
+// for (int j = 0; j < cols; j++) {
+// inputArray[i][j] = sc.nextInt();
+// }
+// }
+
+// // Create an instance of the class containing the solve method
+// day252D solver = new day252D();
+
+// // Call the solve method and store the result in the resultArray
+// int[] resultArray = solver.solve(inputArray);
+
+// // Print the result
+// System.out.println("Result:");
+// for (int result : resultArray) {
+// System.out.print(result + " ");
+// }
+// sc.close();
+// }
+// }
+// 
+// q5-Add--------------------
 package sc;
 
 import java.util.Scanner;
@@ -148,14 +149,15 @@ import java.util.Scanner;
 public class day252D {
 
     public static class Solution {
-        public int[][] solve(int[][] A, int[][] B) {
-            int row = A.length, col = A[0].length;
-            // Iterating over rows
-            for (int i = 0; i < row; i++)
-                // Iterating over the columns
-                for (int j = 0; j < col; j++)
-                    A[i][j] += B[i][j];
-            return A;
+        public int solve(int[][] A, int[][] B) {
+            for (int i = 0; i < A.length; i++) {
+                for (int j = 0; j < A[0].length; j++) {
+                    if (A[i][j] != B[i][j]) {
+                        return 0;
+                    }
+                }
+            }
+            return 1;
         }
     }
 
@@ -182,7 +184,7 @@ public class day252D {
         // Create an instance of the static class containing the solve method
         Solution solver = new Solution();
 
-        // Call the solve method and store the result in the resultArray
+        // Call the solve method and store the result
         System.out.println("Enter the elements of the second array:");
         int[][] secondArray = new int[rows][cols];
         for (int i = 0; i < rows; i++) {
@@ -191,16 +193,10 @@ public class day252D {
             }
         }
 
-        int[][] resultArray = solver.solve(inputArray, secondArray);
+        int result = solver.solve(inputArray, secondArray);
 
         // Print the result
-        System.out.println("Result:");
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                System.out.print(resultArray[i][j] + " ");
-            }
-            System.out.println();
-        }
+        System.out.println("Result: " + result);
         sc.close();
     }
 }
