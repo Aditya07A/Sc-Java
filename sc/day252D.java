@@ -201,57 +201,120 @@
 //     }
 // }
 // q2-Add--------------------
+// package sc;
+
+// import java.util.Scanner;
+
+// public class day252D {
+
+// public static void main(String[] args) {
+// Scanner scanner = new Scanner(System.in);
+
+// // Get the dimensions of the matrices from the user
+// System.out.print("Enter the number of rows for matrices A and B: ");
+// int rows = scanner.nextInt();
+
+// System.out.print("Enter the number of columns for matrices A and B: ");
+// int columns = scanner.nextInt();
+
+// // Initialize matrices A and B
+// int[][] A = new int[rows][columns];
+// int[][] B = new int[rows][columns];
+
+// // Get input for matrix A
+// System.out.println("Enter elements for matrix A:");
+// for (int i = 0; i < rows; i++) {
+// for (int j = 0; j < columns; j++) {
+// System.out.print("A[" + i + "][" + j + "]: ");
+// A[i][j] = scanner.nextInt();
+// }
+// }
+
+// // Get input for matrix B
+// System.out.println("Enter elements for matrix B:");
+// for (int i = 0; i < rows; i++) {
+// for (int j = 0; j < columns; j++) {
+// System.out.print("B[" + i + "][" + j + "]: ");
+// B[i][j] = scanner.nextInt();
+// }
+// }
+
+// // Create an instance of the MatrixSubtractor class
+// MatrixSubtractor matrixSubtractor = new MatrixSubtractor();
+
+// // Call the solve function
+// int[][] result = matrixSubtractor.solve(A, B);
+
+// // Print the result
+// System.out.println("Resulting matrix after subtraction:");
+// for (int i = 0; i < result.length; i++) {
+// for (int j = 0; j < result[0].length; j++) {
+// System.out.print(result[i][j] + " ");
+// }
+// System.out.println();
+// }
+
+// // Close the scanner
+// scanner.close();
+// }
+// }
+
+// class MatrixSubtractor {
+
+// // Subtract matrix B from matrix A
+// public int[][] solve(int[][] A, int[][] B) {
+// int rows = A.length;
+// int columns = A[0].length;
+// int[][] result = new int[rows][columns];
+
+// for (int i = 0; i < rows; i++) {
+// for (int j = 0; j < columns; j++) {
+// result[i][j] = A[i][j] - B[i][j];
+// }
+// }
+
+// return result;
+// }
+// }
+// q3-Add--------------------
 package sc;
 
 import java.util.Scanner;
 
 public class day252D {
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Get the dimensions of the matrices from the user
-        System.out.print("Enter the number of rows for matrices A and B: ");
-        int rows = scanner.nextInt();
+        // Get input for A (number of rows)
+        System.out.print("Enter the number of rows (A): ");
+        int A = scanner.nextInt();
 
-        System.out.print("Enter the number of columns for matrices A and B: ");
-        int columns = scanner.nextInt();
+        // Get input for B (number of columns)
+        System.out.print("Enter the number of columns (B): ");
+        int B = scanner.nextInt();
 
-        // Initialize matrices A and B
-        int[][] A = new int[rows][columns];
-        int[][] B = new int[rows][columns];
+        // Initialize matrix C
+        int[][] C = new int[A][B];
 
-        // Get input for matrix A
-        System.out.println("Enter elements for matrix A:");
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                System.out.print("A[" + i + "][" + j + "]: ");
-                A[i][j] = scanner.nextInt();
+        // Get input for matrix C
+        System.out.println("Enter elements for matrix C:");
+        for (int i = 0; i < A; i++) {
+            for (int j = 0; j < B; j++) {
+                System.out.print("C[" + i + "][" + j + "]: ");
+                C[i][j] = scanner.nextInt();
             }
         }
 
-        // Get input for matrix B
-        System.out.println("Enter elements for matrix B:");
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                System.out.print("B[" + i + "][" + j + "]: ");
-                B[i][j] = scanner.nextInt();
-            }
-        }
-
-        // Create an instance of the MatrixSubtractor class
-        MatrixSubtractor matrixSubtractor = new MatrixSubtractor();
+        // Create an instance of the Solution class
+        Solution solution = new Solution();
 
         // Call the solve function
-        int[][] result = matrixSubtractor.solve(A, B);
+        int[] result = solution.solve(A, B, C);
 
         // Print the result
-        System.out.println("Resulting matrix after subtraction:");
-        for (int i = 0; i < result.length; i++) {
-            for (int j = 0; j < result[0].length; j++) {
-                System.out.print(result[i][j] + " ");
-            }
-            System.out.println();
+        System.out.println("Resulting array after column-wise sum:");
+        for (int j = 0; j < B; j++) {
+            System.out.print(result[j] + " ");
         }
 
         // Close the scanner
@@ -259,20 +322,18 @@ public class day252D {
     }
 }
 
-class MatrixSubtractor {
+class Solution {
+    public int[] solve(int A, int B, int[][] C) {
+        int[] ans = new int[B];
 
-    // Subtract matrix B from matrix A
-    public int[][] solve(int[][] A, int[][] B) {
-        int rows = A.length;
-        int columns = A[0].length;
-        int[][] result = new int[rows][columns];
-
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                result[i][j] = A[i][j] - B[i][j];
+        for (int j = 0; j < B; j++) {
+            int sum = 0;
+            for (int i = 0; i < A; i++) {
+                sum += C[i][j];
             }
+            ans[j] = sum;
         }
 
-        return result;
+        return ans;
     }
 }

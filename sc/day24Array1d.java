@@ -159,7 +159,7 @@ package sc;
 // }
 // }
 
-import java.util.Scanner;
+// import java.util.Scanner;
 
 // public class day24Array1d {
 // public int[] solve(int[] A) {
