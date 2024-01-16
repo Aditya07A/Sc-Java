@@ -141,62 +141,138 @@
 // }
 // }
 // 
-// q5-Add--------------------
+// q1-Add--------------------
+// package sc;
+
+// import java.util.Scanner;
+
+// public class day252D {
+
+//     public static class Solution {
+//         public int solve(int[][] A, int[][] B) {
+//             for (int i = 0; i < A.length; i++) {
+//                 for (int j = 0; j < A[0].length; j++) {
+//                     if (A[i][j] != B[i][j]) {
+//                         return 0;
+//                     }
+//                 }
+//             }
+//             return 1;
+//         }
+//     }
+
+//     public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
+
+//         // Get the number of rows and columns from the user
+//         System.out.print("Enter the number of rows: ");
+//         int rows = sc.nextInt();
+
+//         System.out.print("Enter the number of columns: ");
+//         int cols = sc.nextInt();
+
+//         // Create a 2D array based on user input
+//         int[][] inputArray = new int[rows][cols];
+
+//         System.out.println("Enter the elements of the array:");
+//         for (int i = 0; i < rows; i++) {
+//             for (int j = 0; j < cols; j++) {
+//                 inputArray[i][j] = sc.nextInt();
+//             }
+//         }
+
+//         // Create an instance of the static class containing the solve method
+//         Solution solver = new Solution();
+
+//         // Call the solve method and store the result
+//         System.out.println("Enter the elements of the second array:");
+//         int[][] secondArray = new int[rows][cols];
+//         for (int i = 0; i < rows; i++) {
+//             for (int j = 0; j < cols; j++) {
+//                 secondArray[i][j] = sc.nextInt();
+//             }
+//         }
+
+//         int result = solver.solve(inputArray, secondArray);
+
+//         // Print the result
+//         System.out.println("Result: " + result);
+//         sc.close();
+//     }
+// }
+// q2-Add--------------------
 package sc;
 
 import java.util.Scanner;
 
 public class day252D {
 
-    public static class Solution {
-        public int solve(int[][] A, int[][] B) {
-            for (int i = 0; i < A.length; i++) {
-                for (int j = 0; j < A[0].length; j++) {
-                    if (A[i][j] != B[i][j]) {
-                        return 0;
-                    }
-                }
-            }
-            return 1;
-        }
-    }
-
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
-        // Get the number of rows and columns from the user
-        System.out.print("Enter the number of rows: ");
-        int rows = sc.nextInt();
+        // Get the dimensions of the matrices from the user
+        System.out.print("Enter the number of rows for matrices A and B: ");
+        int rows = scanner.nextInt();
 
-        System.out.print("Enter the number of columns: ");
-        int cols = sc.nextInt();
+        System.out.print("Enter the number of columns for matrices A and B: ");
+        int columns = scanner.nextInt();
 
-        // Create a 2D array based on user input
-        int[][] inputArray = new int[rows][cols];
+        // Initialize matrices A and B
+        int[][] A = new int[rows][columns];
+        int[][] B = new int[rows][columns];
 
-        System.out.println("Enter the elements of the array:");
+        // Get input for matrix A
+        System.out.println("Enter elements for matrix A:");
         for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                inputArray[i][j] = sc.nextInt();
+            for (int j = 0; j < columns; j++) {
+                System.out.print("A[" + i + "][" + j + "]: ");
+                A[i][j] = scanner.nextInt();
             }
         }
 
-        // Create an instance of the static class containing the solve method
-        Solution solver = new Solution();
-
-        // Call the solve method and store the result
-        System.out.println("Enter the elements of the second array:");
-        int[][] secondArray = new int[rows][cols];
+        // Get input for matrix B
+        System.out.println("Enter elements for matrix B:");
         for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                secondArray[i][j] = sc.nextInt();
+            for (int j = 0; j < columns; j++) {
+                System.out.print("B[" + i + "][" + j + "]: ");
+                B[i][j] = scanner.nextInt();
             }
         }
 
-        int result = solver.solve(inputArray, secondArray);
+        // Create an instance of the MatrixSubtractor class
+        MatrixSubtractor matrixSubtractor = new MatrixSubtractor();
+
+        // Call the solve function
+        int[][] result = matrixSubtractor.solve(A, B);
 
         // Print the result
-        System.out.println("Result: " + result);
-        sc.close();
+        System.out.println("Resulting matrix after subtraction:");
+        for (int i = 0; i < result.length; i++) {
+            for (int j = 0; j < result[0].length; j++) {
+                System.out.print(result[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        // Close the scanner
+        scanner.close();
+    }
+}
+
+class MatrixSubtractor {
+
+    // Subtract matrix B from matrix A
+    public int[][] solve(int[][] A, int[][] B) {
+        int rows = A.length;
+        int columns = A[0].length;
+        int[][] result = new int[rows][columns];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                result[i][j] = A[i][j] - B[i][j];
+            }
+        }
+
+        return result;
     }
 }
