@@ -276,64 +276,125 @@
 // return result;
 // }
 // }
-// q3-Add--------------------
+// // q3-Add--------------------
+// package sc;
+
+// import java.util.Scanner;
+
+// public class day252D {
+//     public static void main(String[] args) {
+//         Scanner scanner = new Scanner(System.in);
+
+//         // Get input for A (number of rows)
+//         System.out.print("Enter the number of rows (A): ");
+//         int A = scanner.nextInt();
+
+//         // Get input for B (number of columns)
+//         System.out.print("Enter the number of columns (B): ");
+//         int B = scanner.nextInt();
+
+//         // Initialize matrix C
+//         int[][] C = new int[A][B];
+
+//         // Get input for matrix C
+//         System.out.println("Enter elements for matrix C:");
+//         for (int i = 0; i < A; i++) {
+//             for (int j = 0; j < B; j++) {
+//                 System.out.print("C[" + i + "][" + j + "]: ");
+//                 C[i][j] = scanner.nextInt();
+//             }
+//         }
+
+//         // Create an instance of the Solution class
+//         Solution solution = new Solution();
+
+//         // Call the solve function
+//         int[] result = solution.solve(A, B, C);
+
+//         // Print the result
+//         System.out.println("Resulting array after column-wise sum:");
+//         for (int j = 0; j < B; j++) {
+//             System.out.print(result[j] + " ");
+//         }
+
+//         // Close the scanner
+//         scanner.close();
+//     }
+// }
+
+// class Solution {
+//     public int[] solve(int A, int B, int[][] C) {
+//         int[] ans = new int[B];
+
+//         for (int j = 0; j < B; j++) {
+//             int sum = 0;
+//             for (int i = 0; i < A; i++) {
+//                 sum += C[i][j];
+//             }
+//             ans[j] = sum;
+//         }
+
+//         return ans;
+//     }
+// }
+
+//q4--Add----------------
 package sc;
 
 import java.util.Scanner;
 
 public class day252D {
+    public int[] solve(int[][] A) {
+        int n = A.length;
+        int m = A[0].length;
+
+        int[] ans = new int[n];
+        for (int i = 0; i < n; i++) {
+            // Finding maximum element of ith row
+            for (int j = 0; j < m; j++) {
+                ans[i] = Math.max(ans[i], A[i][j]);
+            }
+        }
+
+        return ans;
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Get input for A (number of rows)
-        System.out.print("Enter the number of rows (A): ");
-        int A = scanner.nextInt();
+        // Get input for the number of rows (n)
+        System.out.print("Enter the number of rows: ");
+        int n = scanner.nextInt();
 
-        // Get input for B (number of columns)
-        System.out.print("Enter the number of columns (B): ");
-        int B = scanner.nextInt();
+        // Get input for the number of columns (m)
+        System.out.print("Enter the number of columns: ");
+        int m = scanner.nextInt();
 
-        // Initialize matrix C
-        int[][] C = new int[A][B];
+        // Initialize matrix A
+        int[][] A = new int[n][m];
 
-        // Get input for matrix C
-        System.out.println("Enter elements for matrix C:");
-        for (int i = 0; i < A; i++) {
-            for (int j = 0; j < B; j++) {
-                System.out.print("C[" + i + "][" + j + "]: ");
-                C[i][j] = scanner.nextInt();
+        // Get input for matrix A
+        System.out.println("Enter elements for matrix A:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                System.out.print("A[" + i + "][" + j + "]: ");
+                A[i][j] = scanner.nextInt();
             }
         }
 
         // Create an instance of the Solution class
-        Solution solution = new Solution();
+        day252D solution = new day252D();
 
-        // Call the solve function
-        int[] result = solution.solve(A, B, C);
+        // Call the solve method
+        int[] result = solution.solve(A);
 
         // Print the result
-        System.out.println("Resulting array after column-wise sum:");
-        for (int j = 0; j < B; j++) {
-            System.out.print(result[j] + " ");
+        System.out.println("Maximum element in each row: ");
+        for (int i = 0; i < result.length; i++) {
+            System.out.println("Row " + i + ": " + result[i]);
         }
 
         // Close the scanner
         scanner.close();
-    }
-}
-
-class Solution {
-    public int[] solve(int A, int B, int[][] C) {
-        int[] ans = new int[B];
-
-        for (int j = 0; j < B; j++) {
-            int sum = 0;
-            for (int i = 0; i < A; i++) {
-                sum += C[i][j];
-            }
-            ans[j] = sum;
-        }
-
-        return ans;
     }
 }
