@@ -110,6 +110,71 @@
 // }
 
 // q3-Assignment-------------------
+// import java.util.Scanner;
+
+// public class day262D {
+
+// public static void main(String[] args) {
+// Scanner scanner = new Scanner(System.in);
+
+// System.out.println("Enter the number of rows for matrices A and B:");
+// int rows = scanner.nextInt();
+
+// System.out.println("Enter the number of columns for matrices A and B:");
+// int cols = scanner.nextInt();
+
+// // Create matrices A and B with user-specified dimensions
+// int[][] A = new int[rows][cols];
+// int[][] B = new int[rows][cols];
+
+// // Input for matrix A
+// System.out.println("Enter elements for matrix A:");
+// for (int i = 0; i < rows; i++) {
+// for (int j = 0; j < cols; j++) {
+// A[i][j] = scanner.nextInt();
+// }
+// }
+
+// // Input for matrix B
+// System.out.println("Enter elements for matrix B:");
+// for (int i = 0; i < rows; i++) {
+// for (int j = 0; j < cols; j++) {
+// B[i][j] = scanner.nextInt();
+// }
+// }
+
+// // Call the solve method and store the result in matrix C
+// int[][] C = solve(A, B);
+
+// // Display the result
+// System.out.println("Resultant matrix C:");
+// for (int i = 0; i < rows; i++) {
+// for (int j = 0; j < cols; j++) {
+// System.out.print(C[i][j] + " ");
+// }
+// System.out.println();
+// }
+
+// // Close the scanner
+// scanner.close();
+// }
+
+// public static int[][] solve(int[][] A, int[][] B) {
+// int N = A.length;
+// int M = A[0].length;
+// int[][] C = new int[N][M];
+
+// for (int i = 0; i < N; i++) {
+// for (int j = 0; j < M; j++) {
+// C[i][j] = A[i][j] - B[i][j];
+// }
+// }
+
+// return C;
+// }
+// }
+// q3-Add-------------------
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class day262D {
@@ -117,59 +182,63 @@ public class day262D {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter the number of rows for matrices A and B:");
+        // Take input for the dimensions of matrix A
+        System.out.println("Enter the number of rows for matrix A:");
         int rows = scanner.nextInt();
 
-        System.out.println("Enter the number of columns for matrices A and B:");
+        System.out.println("Enter the number of columns for matrix A:");
         int cols = scanner.nextInt();
 
-        // Create matrices A and B with user-specified dimensions
-        int[][] A = new int[rows][cols];
-        int[][] B = new int[rows][cols];
+        // Take input for matrix A
+        int[][] A = takeMatrixInput("A", rows, cols, scanner);
 
-        // Input for matrix A
-        System.out.println("Enter elements for matrix A:");
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                A[i][j] = scanner.nextInt();
-            }
-        }
+        // Call the solve method with the input matrix
+        int[] result = solve(A);
 
-        // Input for matrix B
-        System.out.println("Enter elements for matrix B:");
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                B[i][j] = scanner.nextInt();
-            }
-        }
-
-        // Call the solve method and store the result in matrix C
-        int[][] C = solve(A, B);
-
-        // Display the result
-        System.out.println("Resultant matrix C:");
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                System.out.print(C[i][j] + " ");
-            }
-            System.out.println();
-        }
+        // Print the result array
+        System.out.println("Result array: " + Arrays.toString(result));
 
         // Close the scanner
         scanner.close();
     }
 
-    public static int[][] solve(int[][] A, int[][] B) {
-        int N = A.length;
-        int M = A[0].length;
-        int[][] C = new int[N][M];
-
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < M; j++) {
-                C[i][j] = A[i][j] - B[i][j];
+    // Method to take input for a matrix
+    public static int[][] takeMatrixInput(String matrixName, int rows, int cols, Scanner scanner) {
+        System.out.println("Enter elements for matrix " + matrixName + ":");
+        int[][] matrix = new int[rows][cols];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                System.out.print(matrixName + "[" + i + "][" + j + "]: ");
+                matrix[i][j] = scanner.nextInt();
             }
         }
+        return matrix;
+    }
 
-        return C;
+    // Method: solves a specific problem (e.g., sum of each row and column)
+    public static int[] solve(int[][] A) {
+        int n = A.length;
+        int m = A[0].length;
+        int[] res = new int[n + m];
+
+        // Calculate the sum of each row
+        for (int r = 0; r < n; r++) {
+            int rowSum = 0;
+            for (int c = 0; c < m; c++) {
+                rowSum += A[r][c];
+            }
+            res[r] = rowSum;
+        }
+
+        // Calculate the sum of each column
+        for (int c = 0; c < m; c++) {
+            int colSum = 0;
+            for (int r = 0; r < n; r++) {
+                colSum += A[r][c];
+            }
+            res[n + c] = colSum;
+        }
+
+        return res;
     }
 }
