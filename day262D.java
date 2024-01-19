@@ -174,71 +174,90 @@
 // }
 // }
 // q3-Add-------------------
-import java.util.Arrays;
-import java.util.Scanner;
+// import java.util.Arrays;
+// import java.util.Scanner;
 
-public class day262D {
+// public class day262D {
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+//     public static void main(String[] args) {
+//         Scanner scanner = new Scanner(System.in);
 
-        // Take input for the dimensions of matrix A
-        System.out.println("Enter the number of rows for matrix A:");
-        int rows = scanner.nextInt();
+//         // Take input for the dimensions of matrix A
+//         System.out.println("Enter the number of rows for matrix A:");
+//         int rows = scanner.nextInt();
 
-        System.out.println("Enter the number of columns for matrix A:");
-        int cols = scanner.nextInt();
+//         System.out.println("Enter the number of columns for matrix A:");
+//         int cols = scanner.nextInt();
 
-        // Take input for matrix A
-        int[][] A = takeMatrixInput("A", rows, cols, scanner);
+//         // Take input for matrix A
+//         int[][] A = takeMatrixInput("A", rows, cols, scanner);
 
-        // Call the solve method with the input matrix
-        int[] result = solve(A);
+//         // Call the solve method with the input matrix
+//         int[] result = solve(A);
 
-        // Print the result array
-        System.out.println("Result array: " + Arrays.toString(result));
+//         // Print the result array
+//         System.out.println("Result array: " + Arrays.toString(result));
 
-        // Close the scanner
-        scanner.close();
+//         // Close the scanner
+//         scanner.close();
+//     }
+
+//     // Method to take input for a matrix
+//     public static int[][] takeMatrixInput(String matrixName, int rows, int cols, Scanner scanner) {
+//         System.out.println("Enter elements for matrix " + matrixName + ":");
+//         int[][] matrix = new int[rows][cols];
+//         for (int i = 0; i < rows; i++) {
+//             for (int j = 0; j < cols; j++) {
+//                 System.out.print(matrixName + "[" + i + "][" + j + "]: ");
+//                 matrix[i][j] = scanner.nextInt();
+//             }
+//         }
+//         return matrix;
+//     }
+
+//     // Method: solves a specific problem (e.g., sum of each row and column)
+//     public static int[] solve(int[][] A) {
+//         int n = A.length;
+//         int m = A[0].length;
+//         int[] res = new int[n + m];
+
+//         // Calculate the sum of each row
+//         for (int r = 0; r < n; r++) {
+//             int rowSum = 0;
+//             for (int c = 0; c < m; c++) {
+//                 rowSum += A[r][c];
+//             }
+//             res[r] = rowSum;
+//         }
+
+//         // Calculate the sum of each column
+//         for (int c = 0; c < m; c++) {
+//             int colSum = 0;
+//             for (int r = 0; r < n; r++) {
+//                 colSum += A[r][c];
+//             }
+//             res[n + c] = colSum;
+//         }
+
+//         return res;
+//     }
+// }
+//'q6-Add------------------------------
+// import java.util.Scanner;
+
+class Main {
+    static int[][] func(int[][] mat) {
+        int[][] A = new int[1][1];
+        return A;
     }
 
-    // Method to take input for a matrix
-    public static int[][] takeMatrixInput(String matrixName, int rows, int cols, Scanner scanner) {
-        System.out.println("Enter elements for matrix " + matrixName + ":");
-        int[][] matrix = new int[rows][cols];
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                System.out.print(matrixName + "[" + i + "][" + j + "]: ");
-                matrix[i][j] = scanner.nextInt();
-            }
-        }
-        return matrix;
-    }
-
-    // Method: solves a specific problem (e.g., sum of each row and column)
-    public static int[] solve(int[][] A) {
-        int n = A.length;
-        int m = A[0].length;
-        int[] res = new int[n + m];
-
-        // Calculate the sum of each row
-        for (int r = 0; r < n; r++) {
-            int rowSum = 0;
-            for (int c = 0; c < m; c++) {
-                rowSum += A[r][c];
-            }
-            res[r] = rowSum;
-        }
-
-        // Calculate the sum of each column
-        for (int c = 0; c < m; c++) {
-            int colSum = 0;
-            for (int r = 0; r < n; r++) {
-                colSum += A[r][c];
-            }
-            res[n + c] = colSum;
-        }
-
-        return res;
+    public static void main(String args[]) {
+        int[][] A = {
+                { 2, 5, 9, 8 },
+                { 6, 2, 5, 7 },
+                { 1, 3, 0, 4 }
+        };
+        A = func(A);
+        System.out.println(A[0][0]);
     }
 }
