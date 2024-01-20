@@ -245,10 +245,25 @@
 //'q6-Add------------------------------
 // import java.util.Scanner;
 
+// class Main {
+//     static int[][] func(int[][] mat) {
+//         int[][] A = new int[1][1];
+//         return A;
+//     }
+
+//     public static void main(String args[]) {
+//         int[][] A = {
+//                 { 2, 5, 9, 8 },
+//                 { 6, 2, 5, 7 },
+//                 { 1, 3, 0, 4 }
+//         };
+//         A = func(A);
+//         System.out.println(A[0][0]);
+//     }
+// }
 class Main {
-    static int[][] func(int[][] mat) {
-        int[][] A = new int[1][1];
-        return A;
+    static void func(int[][] mat) {
+        mat[2][3] = 19;
     }
 
     public static void main(String args[]) {
@@ -257,7 +272,7 @@ class Main {
                 { 6, 2, 5, 7 },
                 { 1, 3, 0, 4 }
         };
-        A = func(A);
-        System.out.println(A[0][0]);
+        func(A);
+        System.out.println(A[2][4]);
     }
 }
