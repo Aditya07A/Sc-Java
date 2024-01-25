@@ -14,30 +14,42 @@ import java.util.*;
 public class demo1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int a = sc.nextInt();
-        int count = 0;
-        for (int i = 1; i <= a; i++) {
-            if (a % i == 0) {
-                count++;
-            }
-        }
-        if (count == 2) {
-            System.out.println("yes");
-        } else {
-            System.out.println("no");
-        }
         // int a = sc.nextInt();
-        boolean flag = true;
-        for (int i = 2; i < a; i++) {
-            if (a % i == 0) {
-                flag = false;
-                break;
-            }
-        }
-        if (flag == true) {
-            System.out.println("yes");
+        // int count = 0;
+        // for (int i = 1; i <= a; i++) {
+        // if (a % i == 0) {
+        // count++;
+        // }
+        // }
+        // if (count == 2) {
+        // System.out.println("yes");
+        // } else {
+        // System.out.println("no");
+        // }
+        // // int a = sc.nextInt();
+        // boolean flag = true;
+        // for (int i = 2; i < a; i++) {
+        // if (a % i == 0) {
+        // flag = false;
+        // break;
+        // }
+        // }
+        // if (flag == true) {
+        // System.out.println("yes");
+        // } else {
+        // System.out.println("no");
+        // }
+        // }
+
+        int N = sc.nextInt();
+        if (N >= 500000 && N < 1000000) {
+            System.out.println("gold");
+        } else if (N >= 1000000 && N < 10000000) {
+            System.out.println("platinum");
+        } else if (N >= 10000000) {
+            System.out.println("diamond");
         } else {
-            System.out.println("no");
+            System.out.println("none");
         }
     }
 }
