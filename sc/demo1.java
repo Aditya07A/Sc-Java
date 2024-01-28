@@ -64,12 +64,23 @@ public class demo1 {
         // System.out.println(0);
         // }
         // }
-        int n = sc.nextInt();
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= n; j++) {
-                System.out.print("*");
+        // int n = sc.nextInt();
+        // for (int i = 1; i <= n; i++) {
+        // for (int j = 1; j <= n; j++) {
+        // System.out.print("*");
+        // }
+        // System.out.println();
+        // }
+        // }
+        int N = sc.nextInt();
+        for (int i = 4; i <= N;) {
+            System.out.println(i);
+            i += 4;
+        }
+        for (int i = 1; i <= N; i++) {
+            if (i % 4 == 0) {
+                System.out.println(i);
             }
-            System.out.println();
         }
     }
 }
