@@ -52,16 +52,24 @@ public class demo1 {
         // System.out.println("none");
         // }
         // }
+        // int n = sc.nextInt();
+        // int m = sc.nextInt();
+        // if (n == 0) {
+        // if (m == 1) {
+        // System.out.println(1);
+        // } else {
+        // System.out.println(0);
+        // }
+        // } else {
+        // System.out.println(0);
+        // }
+        // }
         int n = sc.nextInt();
-        int m = sc.nextInt();
-        if (n == 0) {
-            if (m == 1) {
-                System.out.println(1);
-            } else {
-                System.out.println(0);
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                System.out.print("*");
             }
-        } else {
-            System.out.println(0);
+            System.out.println();
         }
     }
 }
