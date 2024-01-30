@@ -45,15 +45,25 @@ public class demo1 {
             // System.out.println();
             // }
             // }
+            // int N = sc.nextInt();
+            // for (int i = 4; i <= N;) {
+            // System.out.println(i);
+            // i += 4;
+            // }
+            // for (int i = 1; i <= N; i++) {
+            // if (i % 4 == 0) {
+            // System.out.println(i);
+            // }
+            // }
             int N = sc.nextInt();
-            for (int i = 4; i <= N;) {
-                System.out.println(i);
-                i += 4;
-            }
-            for (int i = 1; i <= N; i++) {
-                if (i % 4 == 0) {
-                    System.out.println(i);
-                }
+            if (N >= 500000 && N < 1000000) {
+                System.out.println("gold");
+            } else if (N >= 1000000 && N < 10000000) {
+                System.out.println("platinum");
+            } else if (N >= 10000000) {
+                System.out.println("diamond");
+            } else {
+                System.out.println("none");
             }
         }
     }
