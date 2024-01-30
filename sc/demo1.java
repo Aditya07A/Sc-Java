@@ -55,16 +55,25 @@ public class demo1 {
             // System.out.println(i);
             // }
             // }
-            int N = sc.nextInt();
-            if (N >= 500000 && N < 1000000) {
-                System.out.println("gold");
-            } else if (N >= 1000000 && N < 10000000) {
-                System.out.println("platinum");
-            } else if (N >= 10000000) {
-                System.out.println("diamond");
-            } else {
-                System.out.println("none");
-            }
+            // int N = sc.nextInt();
+            // if (N >= 500000 && N < 1000000) {
+            // System.out.println("gold");
+            // } else if (N >= 1000000 && N < 10000000) {
+            // System.out.println("platinum");
+            // } else if (N >= 10000000) {
+            // System.out.println("diamond");
+            // } else {
+            // System.out.println("none");
+            // }
+            // }
+            int n = sc.nextInt();
+            // for (int i = 1; i <= n; i++) {
+            // for (int j = 1; j <= n; j++) {
+            // System.out.print("*");
+            // }
+            // System.out.println();
+            // }
+            // }
         }
     }
 }
